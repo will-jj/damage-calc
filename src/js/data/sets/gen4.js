@@ -1,4 +1,4 @@
-SETDEX_PHGSS = {
+SETDEX_DPP = {
   "Abomasnow": {
     "Abomasnow-1 (406)": {
       "evs": {
