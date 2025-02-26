@@ -226,7 +226,7 @@ $(document).ready(function () {
 
 		if (fieldPanelNext.length === 0) {
 			// Move fieldPanel back to its original position after mon2
-			$("#mon2").after(fieldPanel);
+			$("#mon2Panel").after(fieldPanel);
 		} else {
 			// Move fieldPanel to the end of the wrapper
 			wrapper.append(fieldPanel);
