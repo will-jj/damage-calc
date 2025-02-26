@@ -216,20 +216,32 @@ $(document).ready(function () {
 	$("#fieldToggle").click(function () {
 		var fieldPanel = $("#fieldPanel");
 		var oldValue = fieldPanel.css('display');
+		if (oldValue != 'none') {
+			$("#mon2Panel").removeClass('box3End');
+			$("#mon2Panel").addClass('box3Middle');
+		} else {
+			if ($("#fieldPanel").hasClass('box2Inline')) {
+				$("#mon2Panel").removeClass('box3Middle');
+				$("#mon2Panel").addClass('box3End');
+			}
+		}
 		fieldPanel.css('display', oldValue == 'none' ? 'inline-block' : 'none');
 	});
 
 	$("#fieldRepositionToggle").click(function () {
-		var wrapper = $(".wrapper");
-		var fieldPanel = $("#fieldPanel");
-		var fieldPanelNext = fieldPanel.next();
-
-		if (fieldPanelNext.length === 0) {
-			// Move fieldPanel back to its original position after mon1
-			fieldPanel.insertAfter($("#mon1Panel"));
+		if ($("#fieldPanel").hasClass('box2Inline')) {
+			$("#fieldPanel").removeClass('box2Inline');
+			$("#fieldPanel").addClass('box2Below');
+			$("#mon2Panel").removeClass('box3End');
+			$("#mon2Panel").addClass('box3Middle');
 		} else {
-			// Move fieldPanel to the end of the wrapper
-			wrapper.append(fieldPanel);
+			var fieldDisplay = $("#fieldPanel").css('display');
+			$("#fieldPanel").removeClass('box2Below');
+			$("#fieldPanel").addClass('box2Inline');
+			if (fieldDisplay != 'none') {
+				$("#mon2Panel").removeClass('box3Middle');
+				$("#mon2Panel").addClass('box3End');
+			}
 		}
 	});
 
